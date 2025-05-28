@@ -1,4 +1,5 @@
 org 0x100
+bits 16
 
 start:
     mov ax, 0x13
