@@ -15,16 +15,16 @@ mainloop:
     cmp bx, 1
     jne mainloop
 
-    mov ax, 0xA000
-    mov es, ax
+    mov ax, dx          ; Y -> AX
+    mov bx, 320
+    mul bx              ; AX = Y * 320
+    add ax, cx          ; AX = Y * 320 + X
+    mov di, ax          ; DI = final offset
 
-    mov di, dx
-    mov cx, 320
-    mul cx
-    add ax, cx
-    mov di, ax
-    mov al, 15
-    stosb
+    mov ax, 0xA000
+    mov es, ax          ; ES = video memory
+    mov al, 0x0F        ; white color
+    stosb               ; write pixel at ES:DI
 
     jmp mainloop
 
