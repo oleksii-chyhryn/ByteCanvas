@@ -13,8 +13,9 @@
 
 
 ## **Usage**
-When you run the command in the DOS enviroment or emulator you can draw with your mouse (LMB for drawing RMB for erasing)
-You can also switch colors with keys from 1-9 and A, B, C, D, E and F
+> When you run the command in the DOS enviroment or emulator you can draw with your mouse (LMB for drawing, RMB for erasing)
+> Use ESC key to exit
+> You can also switch colors with keys from 1-9 and A, B, C, D, E and F
 
 ## **Future improvements**
 > Adding undo and redo
