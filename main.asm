@@ -11,8 +11,20 @@ start:
 mainloop:
     mov ah, 0x01
     int 0x16
-    jnz quit
+    jz check_mouse
 
+    mov ah, 0x00
+    int 0x16
+    cmp al, 27
+    je quit
+    cmp al, '1'
+    jb check_mouse
+    cmp al, '9'
+    ja check_hex
+
+    sub al, '0'
+    mov [color], al
+check_mouse:
     mov ax, 0x0001
     int 0x33
 
@@ -24,6 +36,15 @@ mainloop:
     jnz erase
 
     jmp mainloop
+check_hex:
+    cmp al, 'a'
+    jb check_mouse
+    cmp al, 'f'
+    ja check_mouse
+
+    sub al, 'a'
+    add al, 0xA
+    mov [color], al
 draw:
     mov ax, 0x0002
     int 0x33
@@ -37,7 +58,7 @@ draw:
 
     mov ax, 0xA000
     mov es, ax          ; ES = video memory
-    mov al, 0x0F        ; white color
+    mov al, [color]        ; white color
     cld
     stosb               ; write pixel at ES:DI
 
@@ -82,3 +103,6 @@ quit:
     mov ax, 0x0003
     int 0x10
     ret
+
+section .data
+color db 0x0F
