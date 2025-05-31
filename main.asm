@@ -58,7 +58,7 @@ draw:
 
     mov ax, 0xA000
     mov es, ax          ; ES = video memory
-    mov al, [color]        ; white color
+    mov al, [color]
     cld
     stosb               ; write pixel at ES:DI
 
