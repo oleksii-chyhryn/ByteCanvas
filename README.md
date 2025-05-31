@@ -1,5 +1,5 @@
 # ByteCanvas
-## A custom painting app made in x86 asm (for ms-dos like systems and emulators for now) 
+## A custom painting app made in x86 asm (for ms-dos like systems and emulators (for now)) 
 
 ## **Requirements**
 > A ms-dos like system with mouse drivers or emulator (e.g. DOSBox)
