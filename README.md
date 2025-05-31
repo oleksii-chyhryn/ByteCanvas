@@ -5,6 +5,7 @@
 > A ms-dos like system with mouse drivers or emulator (e.g. DOSBox)
 ## **Compiling requirements**
 > NASM assembler
+> 
 > Make command for makefile
 
 
